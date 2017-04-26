@@ -27,7 +27,7 @@ const result = monotoneChainConvexHull([[1, 1], [3, 0], [2, 1], [3, 2], [1, 2], 
 
 [npm-image]: https://img.shields.io/npm/v/monotone-chain-convex-hull.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/monotone-chain-convex-hull
-[travis-image]: https://img.shields.io/travis/image-js/matrix/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/image-js/matrix
+[travis-image]: https://img.shields.io/travis/image-js/monotone-chain-convex-hull/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/image-js/monotone-chain-convex-hull
 [download-image]: https://img.shields.io/npm/dm/monotone-chain-convex-hull.svg?style=flat-square
 [download-url]: https://npmjs.org/package/monotone-chain-convex-hull
