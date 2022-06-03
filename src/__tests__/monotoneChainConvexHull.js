@@ -1,7 +1,7 @@
-import mcch from "..";
+import mcch from '..';
 
-describe("monotoneChainConvexHull", () => {
-  it("basic square", () => {
+describe('monotoneChainConvexHull', () => {
+  it('basic square', () => {
     let result = mcch([
       [0, 0],
       [0, 1],
@@ -16,7 +16,7 @@ describe("monotoneChainConvexHull", () => {
     ]);
   });
 
-  it("mixed square", () => {
+  it('mixed square', () => {
     let result = mcch([
       [0, 0],
       [1, 0],
@@ -43,7 +43,7 @@ describe("monotoneChainConvexHull", () => {
     ]);
   });
 
-  it("rectangle with inside points", () => {
+  it('rectangle with inside points', () => {
     let result = mcch([
       [1, 1],
       [3, 0],
@@ -61,7 +61,7 @@ describe("monotoneChainConvexHull", () => {
     ]);
   });
 
-  it("more complex shape", () => {
+  it('more complex shape', () => {
     let result = mcch([
       [-1, -1],
       [0, 0],
@@ -82,7 +82,7 @@ describe("monotoneChainConvexHull", () => {
     ]);
   });
 
-  it("already sorted", () => {
+  it('already sorted', () => {
     expect(
       mcch(
         [
@@ -94,8 +94,8 @@ describe("monotoneChainConvexHull", () => {
           [3, 0],
           [3, 2],
         ],
-        { sorted: true }
-      )
+        { sorted: true },
+      ),
     ).toStrictEqual([
       [0, 0],
       [0, 2],

@@ -11,9 +11,11 @@
   "scripts": {
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
-    "prepublish": "rollup -c",
-    "test": "run-s testonly eslint",
-    "testonly": "jest"
+    "prepack": "rollup -c",
+    "prettier": "prettier --check src",
+    "prettier-write": "prettier --write src",
+    "test": "npm run test-only && npm run eslint && npm run prettier",
+    "test-only": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -30,14 +32,12 @@
   },
   "homepage": "https://github.com/image-js/monotone-chain-convex-hull#readme",
   "devDependencies": {
-    "babel-jest": "^26.3.0",
+    "babel-jest": "^28.1.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "eslint": "^7.7.0",
-    "eslint-config-cheminfo": "^5.1.1",
-    "eslint-plugin-no-only-tests": "^2.4.0",
-    "jest": "^26.4.2",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.1",
-    "rollup": "^2.26.8"
+    "eslint": "^8.16.0",
+    "eslint-config-cheminfo": "^8.0.1",
+    "jest": "^28.1.0",
+    "prettier": "^2.6.2",
+    "rollup": "^2.75.5"
   }
 }
