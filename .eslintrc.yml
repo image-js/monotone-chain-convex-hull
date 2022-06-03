@@ -1,4 +1,4 @@
-extends: 'eslint-config-cheminfo'
+extends: 'cheminfo-typescript'
 parserOptions:
   sourceType: module
 env:
