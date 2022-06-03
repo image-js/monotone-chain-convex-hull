@@ -1,13 +1,21 @@
+interface MCCHOptions {
+  sorted?: boolean;
+}
+type Point = [number, number];
 /**
  * Computes the convex hull of a binary image using Andrew's Monotone Chain Algorithm
  * http://www.algorithmist.com/index.php/Monotone_Chain_Convex_Hull
- * @param {Array<Array<number>>} points - An array of points (two elements arrays)
- * @param {object} [options]
- * @param {boolean} [options.sorted=false]
- * @return {Array<Array<number>>} Coordinates of the convex hull in clockwise order
+ *
+ * @param points - An array of points.
+ * @param options - MCCH Algorithm options.
+ * @return Coordinates of the convex hull in clockwise order
  */
-export default function monotoneChainConvexHull(points, options = {}) {
-  if (!options.sorted) {
+export default function monotoneChainConvexHull(
+  points: Point[],
+  options: MCCHOptions = {},
+): Point[] {
+  const { sorted } = options;
+  if (!sorted) {
     points.sort(byXThenY);
   }
 
@@ -35,11 +43,11 @@ export default function monotoneChainConvexHull(points, options = {}) {
   return result.slice(0, k - 1);
 }
 
-function cw(p1, p2, p3) {
+function cw(p1: Point, p2: Point, p3: Point) {
   return (p2[1] - p1[1]) * (p3[0] - p1[0]) - (p2[0] - p1[0]) * (p3[1] - p1[1]);
 }
 
-function byXThenY(point1, point2) {
+function byXThenY(point1: Point, point2: Point) {
   if (point1[0] === point2[0]) {
     return point1[1] - point2[1];
   }

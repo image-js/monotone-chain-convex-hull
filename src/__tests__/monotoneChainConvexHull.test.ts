@@ -2,7 +2,7 @@ import mcch from '..';
 
 describe('monotoneChainConvexHull', () => {
   it('basic square', () => {
-    let result = mcch([
+    const result = mcch([
       [0, 0],
       [0, 1],
       [1, 0],
@@ -17,7 +17,7 @@ describe('monotoneChainConvexHull', () => {
   });
 
   it('mixed square', () => {
-    let result = mcch([
+    const result = mcch([
       [0, 0],
       [1, 0],
       [0, 1],
@@ -44,7 +44,7 @@ describe('monotoneChainConvexHull', () => {
   });
 
   it('rectangle with inside points', () => {
-    let result = mcch([
+    const result = mcch([
       [1, 1],
       [3, 0],
       [2, 1],
@@ -62,7 +62,7 @@ describe('monotoneChainConvexHull', () => {
   });
 
   it('more complex shape', () => {
-    let result = mcch([
+    const result = mcch([
       [-1, -1],
       [0, 0],
       [0, -2],
@@ -83,20 +83,19 @@ describe('monotoneChainConvexHull', () => {
   });
 
   it('already sorted', () => {
-    expect(
-      mcch(
-        [
-          [0, 0],
-          [0, 2],
-          [1, 1],
-          [1, 2],
-          [2, 1],
-          [3, 0],
-          [3, 2],
-        ],
-        { sorted: true },
-      ),
-    ).toStrictEqual([
+    const result = mcch(
+      [
+        [0, 0],
+        [0, 2],
+        [1, 1],
+        [1, 2],
+        [2, 1],
+        [3, 0],
+        [3, 2],
+      ],
+      { sorted: true },
+    );
+    expect(result).toStrictEqual([
       [0, 0],
       [0, 2],
       [3, 2],

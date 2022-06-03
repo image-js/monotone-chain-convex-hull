@@ -2,20 +2,26 @@
   "name": "monotone-chain-convex-hull",
   "version": "1.0.0",
   "description": "Monotone Chain Convex Hull algorithm",
-  "main": "lib/index.js",
-  "module": "src/index.js",
+  "main": "./lib/index.js",
+  "module": "./lib-esm/index.js",
   "files": [
+    "src",
     "lib",
-    "src"
+    "lib-esm"
   ],
   "scripts": {
+    "check-types": "tsc --noEmit",
+    "clean": "rimraf lib lib-esm",
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
-    "prepack": "rollup -c",
+    "prepack": "npm run tsc",
     "prettier": "prettier --check src",
     "prettier-write": "prettier --write src",
-    "test": "npm run test-only && npm run eslint && npm run prettier",
-    "test-only": "jest --coverage"
+    "test": "npm run test-only && npm run eslint && npm run prettier && npm run check-types",
+    "test-only": "jest --coverage",
+    "tsc": "npm run clean && npm run tsc-cjs && npm run tsc-esm",
+    "tsc-cjs": "tsc --project tsconfig.cjs.json",
+    "tsc-esm": "tsc --project tsconfig.esm.json"
   },
   "repository": {
     "type": "git",
@@ -32,12 +38,15 @@
   },
   "homepage": "https://github.com/image-js/monotone-chain-convex-hull#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/jest": "^28.1.0",
     "babel-jest": "^28.1.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "eslint": "^8.16.0",
-    "eslint-config-cheminfo": "^8.0.1",
+    "eslint-config-cheminfo-typescript": "^11.0.1",
     "jest": "^28.1.0",
     "prettier": "^2.6.2",
-    "rollup": "^2.75.5"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.2"
   }
 }
